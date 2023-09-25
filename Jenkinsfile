@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
 
        steps {      
-        bat 'docker build -t flask:v1 .'          
+        bat 'docker build -t flask:v1 .'   
       }
      
         }
