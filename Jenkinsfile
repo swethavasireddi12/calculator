@@ -5,7 +5,8 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            sh 'echo "building the repo"'
+            
+            sh 'sudo docker build -t image1:v1'
 
           }
         }
