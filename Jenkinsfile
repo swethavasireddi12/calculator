@@ -6,6 +6,7 @@ pipeline {
         stage('Build') {
           steps {
             bat 'echo "building the repo"'
+
           }
         }
       }
@@ -13,7 +14,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        bat 'python3 test_app.py'
+        sh 'python3 test_app.py'
         input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
       }
     }
