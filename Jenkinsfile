@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
           steps {
             
-            bat 'sudo docker build -t image1:v1'
+            bat 'docker build -t image1:v1'
 
           }
         }
