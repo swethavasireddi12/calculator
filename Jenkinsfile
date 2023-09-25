@@ -13,6 +13,11 @@ pipeline {
       }
      
         }
+    stage('Run Image') {     
+      steps {            
+        bat 'docker run -d --name container1 flask:v1'          
+      }       
+    }
   }
 }
   
