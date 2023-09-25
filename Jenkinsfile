@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            bat 'echo "building the repo"'
+            sh 'echo "building the repo"'
 
           }
         }
@@ -14,7 +14,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        bat 'python test_app.py'
+        sh 'python3 test_app.py'
         input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
       }
     }
@@ -35,7 +35,7 @@ pipeline {
         }
         success {
             
-            bat "sudo nohup python app.py > log.txt 2>&1 &"
+            sh "sudo nohup python3 app.py > log.txt 2>&1 &"
             echo "Flask Application Up and running!!"
         }
         failure {
