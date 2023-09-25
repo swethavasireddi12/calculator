@@ -9,9 +9,10 @@ pipeline {
     stage('Build') {
           steps {
             
-            bat 'docker build -t image1:v1'
+            bat 'docker build -t image1:0.0.1.RELEASE.'
 
           }
+     
         }
   }
 }
