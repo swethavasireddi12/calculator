@@ -15,7 +15,7 @@ pipeline {
         }
     stage('Run Image') {     
       steps {            
-        bat 'docker run -d -p 5000:5000 --name jenkins flask:v1'          
+        bat 'docker run -d -p 5000:5000 --name jenkins flask:v1'  
       }       
     }
   }
