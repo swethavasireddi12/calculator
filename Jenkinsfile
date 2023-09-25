@@ -14,7 +14,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        bat 'python3 test_app.py'
+        bat 'python test_app.py'
         input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
       }
     }
@@ -35,7 +35,7 @@ pipeline {
         }
         success {
             
-            bat "sudo nohup python3 app.py > log.txt 2>&1 &"
+            bat "sudo nohup python app.py > log.txt 2>&1 &"
             echo "Flask Application Up and running!!"
         }
         failure {
