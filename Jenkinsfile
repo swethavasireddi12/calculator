@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  environment {    
+    DOCKER_IMAGE_NAME = "flask"      
+    DOCKER_IMAGE_TAG = "latest"
+  }
   stages {
     stage('Checkout') {           
       steps {                              
@@ -7,11 +11,12 @@ pipeline {
       }   
     }
     stage('Build') {
-          steps {
-            
-            bat 'docker build -t image1:0.0.1.RELEASE.'
 
-          }
+       steps {      
+        script {        
+          dockerImage = docker.build("${flask}:${latest}", "./")              
+        }           
+      }
      
         }
   }
